@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://exatip.com/sitemap.xml
+
+# Disallow non-content utilities if any appear later
+Disallow: /cgi-bin/
