@@ -1,0 +1,221 @@
+/* Top-left Contact Us form widget */
+.exatip-contact-widget {
+  --cw-accent: #ffaa17;
+  --cw-dark: #222429;
+  --cw-text: #555;
+  --cw-bg: #ffffff;
+  position: fixed;
+  top: 96px;
+  left: 0;
+  z-index: 99990;
+  font-family: inherit;
+}
+
+.exatip-contact-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  cursor: pointer;
+  background: var(--cw-dark);
+  color: #fff;
+  padding: 12px 14px 12px 16px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.exatip-contact-toggle:hover,
+.exatip-contact-toggle[aria-expanded="true"] {
+  background: var(--cw-accent);
+  color: #111;
+}
+
+.exatip-contact-toggle .cw-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.exatip-contact-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(360px, calc(100vw - 24px));
+  background: var(--cw-bg);
+  border-radius: 0 14px 14px 0;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  transform: translateX(-110%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.28s ease, opacity 0.28s ease, visibility 0.28s ease;
+  overflow: hidden;
+}
+
+.exatip-contact-widget.is-open .exatip-contact-panel {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.exatip-contact-widget.is-open .exatip-contact-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.exatip-contact-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--cw-dark);
+  color: #fff;
+  padding: 16px 18px;
+}
+
+.exatip-contact-panel__head h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #fff;
+  font-weight: 700;
+}
+
+.exatip-contact-panel__head p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.exatip-contact-close {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.exatip-contact-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.exatip-contact-panel__body {
+  padding: 16px 18px 18px;
+}
+
+.exatip-contact-panel__body .cw-field {
+  margin-bottom: 12px;
+}
+
+.exatip-contact-panel__body label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cw-dark);
+  margin-bottom: 5px;
+}
+
+.exatip-contact-panel__body input,
+.exatip-contact-panel__body textarea,
+.exatip-contact-panel__body select {
+  width: 100%;
+  border: 1px solid #e2e5ea;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--cw-dark);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exatip-contact-panel__body input:focus,
+.exatip-contact-panel__body textarea:focus,
+.exatip-contact-panel__body select:focus {
+  border-color: var(--cw-accent);
+  box-shadow: 0 0 0 3px rgba(255, 170, 23, 0.2);
+}
+
+.exatip-contact-panel__body textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.exatip-contact-panel__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.exatip-contact-panel__actions button {
+  flex: 1;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.exatip-contact-submit {
+  background: var(--cw-accent);
+  color: #111;
+}
+
+.exatip-contact-submit:hover {
+  filter: brightness(0.95);
+}
+
+.exatip-contact-reset {
+  background: #f1f2f4;
+  color: var(--cw-dark);
+}
+
+.exatip-contact-status {
+  display: none;
+  margin-top: 10px;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.exatip-contact-status.is-success {
+  display: block;
+  background: #e8f7ee;
+  color: #146c2e;
+}
+
+.exatip-contact-status.is-error {
+  display: block;
+  background: #fdecec;
+  color: #a11b1b;
+}
+
+@media (max-width: 575px) {
+  .exatip-contact-widget {
+    top: 80px;
+  }
+
+  .exatip-contact-toggle span.cw-label {
+    display: none;
+  }
+
+  .exatip-contact-toggle {
+    padding: 12px;
+    border-radius: 0 10px 10px 0;
+  }
+}
